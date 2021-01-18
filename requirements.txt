@@ -1,2 +1,5 @@
-pandasgeopandasbokehipykernel
-package.json
+pandas
+geopandas
+bokeh
+ipykernel
+fiona
