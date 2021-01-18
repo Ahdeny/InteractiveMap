@@ -33,7 +33,7 @@ from bokeh.io import export_png
 
 
 #Load in shapefile, in this case we are using Local Authorities. Shapefiles can be found by just google searching
-shapefile = 'https://github.com/HaydenGreenfield/Interactivemap/tree/main/Data/Local_Authority_Districts__December_2017__Boundaries_GB_BUC-shp/Local_Authority_Districts__December_2017__Boundaries_GB_BUC.shp'
+shapefile = 'https://github.com/Ahdeny/InteractiveMap/tree/main/Dataformap/Local_Authority_Districts__December_2017__Boundaries_GB_BUC-shp/Local_Authority_Districts__December_2017__Boundaries_GB_BUC.shp'
 
 #Read shapefile using Geopandas
 gdf = gpd.read_file(shapefile)[['LAD17CD', 'LAD17NM', 'geometry']]
@@ -48,7 +48,7 @@ gdf.head()
 
 #Load in your data file and read using pandas, note this data file requires the same geographical ID as shapefile
 #This is because you want to be able to merge the data and shapefile and hence need the same ID.
-datafile = 'https://github.com/HaydenGreenfield/Interactivemap/tree/main/Data/cni_la2.csv'
+datafile = 'https://github.com/Ahdeny/InteractiveMap/tree/main/Dataformap/averagepolls.csv'
 df = pd.read_csv(datafile)
 df.head()
 
@@ -104,7 +104,7 @@ tick_labels = {'0': '0', '5': '5', '10':'10', '15':'15', '20':'20', '25':'25', '
 
 
 #Add in the interactive tools
-hover = HoverTool(tooltips = [ ('Local Authority','@area'),('Needs Score', '@average'), ('Polling', '@polls')])
+hover = HoverTool(tooltips = [ ('Local Authority','@area'),('average', '@average'), ('Polling', '@polls')])
 zoom = WheelZoomTool()
 reset = ResetTool()
 pan = PanTool()
@@ -134,7 +134,7 @@ def update_plot(attr, old, new):
     yr = slider.value
     new_data = json_data()
     geosource.geojson = new_data
-    p.title.text = 'Community Needs Scores' %yr
+    p.title.text = 'Average Scores' %yr
    
   
 
@@ -143,7 +143,7 @@ slider = Slider(title = 'Year',start = 2000, end = 2016, step = 1, value = 2016)
 slider.on_change('value', update_plot)
 
 # Make a selection object: select
-select = Select(title='Select Criteria:', value='Needs Score', options=['Needs Score','Polling'])
+select = Select(title='Select Criteria:', value='Needs Score', options=['Average','Polling'])
 select.on_change('value', update_plot)
 
 # Make a column layout of widgetbox(slider) and plot, and add it to the current document
@@ -151,21 +151,9 @@ select.on_change('value', update_plot)
 layout = column(p, select, slider)
 curdoc().add_root(layout)
 #Display plot inline in Jupyter notebook
-output_notebook()
+#output_notebook()
 #Display plot
-show(layout)
-
-#NOTE: The year slider only works when you embed the map on a webpage or run it via a Bokeh server. 
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
+#show(layout)
 
 
 
