@@ -37,7 +37,7 @@ gdf = gpd.read_file(shapefile)[['LAD17CD', 'LAD17NM', 'geometry']]
 
 #Renaming columns to make it a little easier
 gdf.columns = ['area_code', 'area', 'geometry']
-gdf.head()
+#gdf.head()
 
 
 # In[7]:
@@ -47,7 +47,7 @@ gdf.head()
 #This is because you want to be able to merge the data and shapefile and hence need the same ID.
 datafile = 'C:/Users/hayde/Data/averagepolls.csv'
 df = pd.read_csv(datafile)
-df.head()
+#df.head()
 
 
 # In[9]:
@@ -60,7 +60,7 @@ merged = gdf.merge(df_2016, left_on = 'area_code', right_on = 'id', how = 'left'
 
 #Replace NaN values to string 'No data'
 #merged.fillna('No data', inplace = True)
-merged.head()
+#merged.head()
 
 
 # In[10]:
@@ -147,9 +147,9 @@ select.on_change('value', update_plot)
 layout = column(p, select, slider)
 curdoc().add_root(layout)
 #Display plot inline in Jupyter notebook
-output_notebook()
+#output_notebook()
 #Display plot
-show(layout)
+#show(layout)
 
 #NOTE: The year slider only works when you embed the map on a webpage or run it via a Bokeh server. 
 
