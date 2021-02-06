@@ -189,9 +189,9 @@ layout = column(p)
 #layout = column(p, select, slider)
 curdoc().add_root(layout)
 #Display plot inline in Jupyter notebook
-output_notebook()
+#output_notebook()
 #Display plot
-show(layout)
+#show(layout)
 
 #NOTE: The year slider only works when you embed the map on a webpage or run it via a Bokeh server. 
 
