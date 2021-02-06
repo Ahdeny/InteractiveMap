@@ -73,7 +73,6 @@ pywinpty
 PyYAML==5.3.1
 pyzmq
 requests
-ruamel-yaml-conda
 Send2Trash==1.5.0
 Shapely==1.6.4.post1
 sip==4.19.13
