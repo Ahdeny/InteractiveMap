@@ -20,7 +20,7 @@ cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.6.0
 entrypoints
-Fiona==1.8.4
+Fiona
 GDAL==2.3.3
 geopandas==0.6.1
 idna
