@@ -40,7 +40,6 @@ jupyterlab-server
 kiwisolver
 MarkupSafe
 matplotlib
-menuinst==1.4.16
 mistune
 munch==2.5.0
 nbclassic
