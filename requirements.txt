@@ -80,7 +80,6 @@ terminado
 testpath==0.4.4
 tornado
 tqdm
-traitletsk
 typing-extensions
 urllib3
 wcwidth
